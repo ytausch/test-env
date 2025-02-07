@@ -10,4 +10,4 @@ jobs:
         steps:
             - run: echo "Hello"
             - run: echo $((${{secrets.TEST_SECRET_2}} + ${{secrets.TEST_SECRET_2}}))
-              if: ${{github.event_name}} == 'merge_group'
+              if: github.event_name == 'merge_group'
