@@ -1,10 +1,12 @@
 on:
     merge_group:
         types: [checks_requested]
+    pull_request:
+        branches: [main]
 
 jobs:
     test:
-        environment: test-env
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         runs-on: ubuntu-latest
         steps:
             - run: echo $((${{secrets.TEST_SECRET_2}} + ${{secrets.TEST_SECRET_2}}))

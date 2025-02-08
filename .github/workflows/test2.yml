@@ -1,9 +1,0 @@
-on:
-    pull_request:
-
-jobs:
-    test:
-        environment: test-env
-        runs-on: ubuntu-latest
-        steps:
-            - run: echo "Emit positive check!"
